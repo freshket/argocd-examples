@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mini-node-api-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: HEAD
+    path: charts/mini-node-api
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: example
+  syncPolicy:
+    automated: null
+    selfHeal: true
+    manual:
+      enabled: true
+    syncOptions:
+      - CreateNamespace=true
