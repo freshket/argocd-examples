@@ -1,3 +1,10 @@
+project:
+  name: freshket
+  environment: dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: "*"
+
 repo:
   url: https://github.com/freshket/argocd-examples.git
 destination:
