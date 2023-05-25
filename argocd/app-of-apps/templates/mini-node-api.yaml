@@ -3,15 +3,17 @@ kind: Application
 metadata:
   name: mini-node-api-application
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: https://github.com/freshket/argocd-examples.git
+    repoURL: {{ .Values.repo.url }}
     targetRevision: HEAD
     path: charts/mini-node-api
   destination:
-    server: https://kubernetes.default.svc
-    namespace: example
+    server: {{ .Values.destination.server }}
+    namespace: {{ .Values.destination.namespace }}
   syncPolicy:
     automated:
       selfHeal: true

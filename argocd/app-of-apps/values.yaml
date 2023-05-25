@@ -1,0 +1,5 @@
+repo:
+  url: https://github.com/freshket/argocd-examples.git
+destination:
+  namespace: argocd
+  server: https://kubernetes.default.svc
