@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  project: {{ printf "%s-%s" .Values.project.name .Values.project.environment }}
   source:
     repoURL: {{ .Values.repo.url }}
     targetRevision: HEAD
