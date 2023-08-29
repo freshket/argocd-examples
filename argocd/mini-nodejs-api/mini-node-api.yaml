@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  project: freshket
   source:
     repoURL: https://github.com/freshket/argocd-examples.git
     targetRevision: HEAD
